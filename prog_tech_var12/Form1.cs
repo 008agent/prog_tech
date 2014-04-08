@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
+using utils;
 
 namespace prog_tech_var12
 {
@@ -30,7 +31,30 @@ namespace prog_tech_var12
 
         private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            new AboutBox1().ShowDialog();
+            AboutBox1 ab = new AboutBox1();
+            ab.ShowDialog();
+        }
+
+        private void inputToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            String fSrc;
+            OpenFileDialog ofd = new OpenFileDialog();
+
+            ofd.Filter = "XML files (*.xml)|*.xml|All files (*.*)|*.*";
+            try
+            {
+                ofd.ShowDialog();
+                fSrc = ofd.FileName;
+                if (fSrc.Length == 0) { throw new FileEx(); }
+                Context ctx = Loader.loadXML(fSrc);
+                
+                
+            }
+            catch (Exception E)
+            {
+                MessageBox.Show(E.Message);
+                fSrc = ofd.FileName = "";
+            }
         }
     }
 }

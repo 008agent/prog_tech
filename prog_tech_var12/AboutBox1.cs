@@ -16,7 +16,7 @@ namespace prog_tech_var12
             this.labelProductName.Text = AssemblyProduct;
             this.labelVersion.Text = String.Format("Версия {0}", AssemblyVersion);
             this.labelCopyright.Text = AssemblyCopyright;
-            this.textBoxDescription.Text = AssemblyDescription;
+            this.textBoxDescription.Text = "Описание: Лабораторная работа по дисциплине \"Технологии программирования\"";
         }
 
         #region Методы доступа к атрибутам сборки
@@ -102,6 +102,16 @@ namespace prog_tech_var12
         private void okButton_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void AboutBox1_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBoxDescription_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

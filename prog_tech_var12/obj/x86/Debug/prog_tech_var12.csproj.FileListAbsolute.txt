@@ -1,0 +1,10 @@
+D:\src\prog_tech\prog_tech_var12\bin\Debug\prog_tech_var12.exe
+D:\src\prog_tech\prog_tech_var12\bin\Debug\prog_tech_var12.pdb
+D:\src\prog_tech\prog_tech_var12\obj\x86\Debug\ResolveAssemblyReference.cache
+D:\src\prog_tech\prog_tech_var12\obj\x86\Debug\prog_tech_var12.AboutBox1.resources
+D:\src\prog_tech\prog_tech_var12\obj\x86\Debug\prog_tech_var12.f_main.resources
+D:\src\prog_tech\prog_tech_var12\obj\x86\Debug\prog_tech_var12.Properties.Resources.resources
+D:\src\prog_tech\prog_tech_var12\obj\x86\Debug\ResGen.read.1.tlog
+D:\src\prog_tech\prog_tech_var12\obj\x86\Debug\ResGen.write.1.tlog
+D:\src\prog_tech\prog_tech_var12\obj\x86\Debug\prog_tech_var12.exe
+D:\src\prog_tech\prog_tech_var12\obj\x86\Debug\prog_tech_var12.pdb

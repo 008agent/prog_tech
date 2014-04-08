@@ -30,12 +30,12 @@
         {
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.beginToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.inputToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.chooseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.inputToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.drawToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.quitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.inputToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.chooseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -61,6 +61,19 @@
             this.beginToolStripMenuItem.Name = "beginToolStripMenuItem";
             this.beginToolStripMenuItem.Size = new System.Drawing.Size(49, 20);
             this.beginToolStripMenuItem.Text = "Begin";
+            // 
+            // inputToolStripMenuItem1
+            // 
+            this.inputToolStripMenuItem1.Name = "inputToolStripMenuItem1";
+            this.inputToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
+            this.inputToolStripMenuItem1.Text = "Input";
+            this.inputToolStripMenuItem1.Click += new System.EventHandler(this.inputToolStripMenuItem1_Click);
+            // 
+            // chooseToolStripMenuItem
+            // 
+            this.chooseToolStripMenuItem.Name = "chooseToolStripMenuItem";
+            this.chooseToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.chooseToolStripMenuItem.Text = "Choose";
             // 
             // inputToolStripMenuItem
             // 
@@ -89,18 +102,6 @@
             this.quitToolStripMenuItem.Size = new System.Drawing.Size(42, 20);
             this.quitToolStripMenuItem.Text = "Quit";
             this.quitToolStripMenuItem.Click += new System.EventHandler(this.quitToolStripMenuItem_Click);
-            // 
-            // inputToolStripMenuItem1
-            // 
-            this.inputToolStripMenuItem1.Name = "inputToolStripMenuItem1";
-            this.inputToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
-            this.inputToolStripMenuItem1.Text = "Input";
-            // 
-            // chooseToolStripMenuItem
-            // 
-            this.chooseToolStripMenuItem.Name = "chooseToolStripMenuItem";
-            this.chooseToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.chooseToolStripMenuItem.Text = "Choose";
             // 
             // f_main
             // 
