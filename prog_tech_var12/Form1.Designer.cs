@@ -74,6 +74,7 @@
             this.chooseToolStripMenuItem.Name = "chooseToolStripMenuItem";
             this.chooseToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.chooseToolStripMenuItem.Text = "Choose";
+            this.chooseToolStripMenuItem.Click += new System.EventHandler(this.chooseToolStripMenuItem_Click);
             // 
             // inputToolStripMenuItem
             // 

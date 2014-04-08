@@ -14,6 +14,10 @@ namespace prog_tech_var12
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
+            //init start conditions
+            utils.Globals.glob_canDraw = false;
+            utils.Globals.glob_graphType = 255;
+            //
             Application.Run(new f_main());
         }
     }

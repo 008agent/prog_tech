@@ -47,14 +47,19 @@ namespace prog_tech_var12
                 fSrc = ofd.FileName;
                 if (fSrc.Length == 0) { throw new FileEx(); }
                 Context ctx = Loader.loadXML(fSrc);
-                
-                
+                MessageBox.Show("File " + fSrc + " loaded successfully");
             }
             catch (Exception E)
             {
                 MessageBox.Show(E.Message);
                 fSrc = ofd.FileName = "";
             }
+        }
+
+        private void chooseToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FormChooseGraphType fchoose = new FormChooseGraphType();
+            fchoose.ShowDialog();
         }
     }
 }
