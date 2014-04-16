@@ -27,10 +27,36 @@ namespace prog_tech_var12
 
         private void drawToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Painter.clearCanvas(ref pb_canvas, utils.Globals.glob_fillColor);
-            InitialConditions ic = new InitialConditions(utils.Globals.glob_context,ref pb_canvas);
-            Painter.drawGrid(ref pb_canvas,ic);
-            Painter.drawLinearGraph(ref pb_canvas, ic);
+            try
+            {
+                switch (Globals.glob_graphType)
+                {
+                    case 0:
+                        {
+                            Painter.clearCanvas(ref pb_canvas, utils.Globals.glob_fillColor);
+                            InitialConditions ic = new InitialConditions(utils.Globals.glob_context, ref pb_canvas);
+                            Painter.drawGrid(ref pb_canvas, ic);
+                            Painter.drawLinearGraph(ref pb_canvas, ic); break;
+                        }
+                    case 1:
+                        {
+                            Painter.clearCanvas(ref pb_canvas, utils.Globals.glob_fillColor);
+                            InitialConditions ic = new InitialConditions(utils.Globals.glob_context, ref pb_canvas);
+                            Painter.drawGrid(ref pb_canvas, ic);
+                            Painter.drawDiagramm(ref pb_canvas, ic); break;
+                        }
+                    default:
+                        {
+                            throw new Exception("Graph type not defined");
+                        }
+                }
+            }
+            catch (Exception E)
+            {
+                MessageBox.Show(E.Message);
+            }
+
+
         }
 
         private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
@@ -51,6 +77,10 @@ namespace prog_tech_var12
                 fSrc = ofd.FileName;
                 if (fSrc.Length == 0) { throw new FileEx(); }
                 Context ctx = Loader.loadXML(fSrc);
+                if (ctx.pt_context != "true")
+                {
+                    throw new Exception("Corrupted XML file");
+                }
                 utils.Globals.glob_context = ctx;
                 MessageBox.Show("File " + fSrc + " loaded successfully");
             }
@@ -81,7 +111,6 @@ namespace prog_tech_var12
 
         private void pb_canvas_Click(object sender, EventArgs e)
         {
-            utils.Painter.clearCanvas(ref pb_canvas, utils.Globals.glob_fillColor);
         }
 
         private void debugToolStripMenuItem_Click(object sender, EventArgs e)

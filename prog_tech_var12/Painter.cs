@@ -100,7 +100,40 @@ namespace utils
             {
                 using (Pen p = new Pen(GlaphColor))
                 {
+                    p.Width = 3;
                     G.DrawLines(p, arr);
+                }
+            }
+        }
+
+        public static void drawDiagramm(ref PictureBox pbCanvas, utils.InitialConditions IC)
+        {
+            Color GlaphColor = Color.FromArgb(Globals.glob_colorRed, Globals.glob_colorGreen, Globals.glob_colorBlue);
+            Point[] arr = new Point[IC.ctx.Xarr.GetLength(0)];
+            Point[] zeroVertexes = new Point[IC.ctx.Xarr.GetLength(0)];
+
+            Point pCenter = new Point();
+            pCenter.X = (int)((pbCanvas.Width / (Math.Abs(IC.Xmin) + Math.Abs(IC.Xmax))) * Math.Abs(IC.Xmin));
+            pCenter.Y = (int)((pbCanvas.Height / (Math.Abs(IC.Ymin) + Math.Abs(IC.Ymax))) * Math.Abs(IC.Ymax));
+            for (int i = 0; i < IC.ctx.Xarr.GetLength(0); i++)
+            {
+                arr[i].X = (int)(pCenter.X + 2 * (IC.ctx.Xarr[i] * IC.scaleX));
+                zeroVertexes[i].X = arr[i].X;
+            }
+            for (int j = 0; j < IC.ctx.Yarr.GetLength(0); j++)
+            {
+                arr[j].Y = (int)(pCenter.Y - 2 * (IC.ctx.Yarr[j] * IC.scaleY));
+                zeroVertexes[j].Y = pCenter.Y;
+            }
+            using (Graphics G = pbCanvas.CreateGraphics())
+            {
+                using (Pen p = new Pen(GlaphColor))
+                {
+                    p.Width = 3;
+                    for (int i = 0; i < zeroVertexes.GetLength(0); i++)
+                    {
+                        G.DrawLine(p, arr[i], zeroVertexes[i]);
+                    }
                 }
             }
         }
