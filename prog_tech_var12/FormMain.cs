@@ -27,6 +27,10 @@ namespace prog_tech_var12
 
         private void drawToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            Painter.clearCanvas(ref pb_canvas, utils.Globals.glob_fillColor);
+            InitialConditions ic = new InitialConditions(utils.Globals.glob_context,ref pb_canvas);
+            Painter.drawGrid(ref pb_canvas,ic);
+            Painter.drawLinearGraph(ref pb_canvas, ic);
         }
 
         private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
@@ -40,13 +44,14 @@ namespace prog_tech_var12
             String fSrc;
             OpenFileDialog ofd = new OpenFileDialog();
 
-            ofd.Filter = "XML files (*.xml)|*.xml|All files (*.*)|*.*";
+            ofd.Filter = utils.Globals.glob_XMLfilter;
             try
             {
                 ofd.ShowDialog();
                 fSrc = ofd.FileName;
                 if (fSrc.Length == 0) { throw new FileEx(); }
                 Context ctx = Loader.loadXML(fSrc);
+                utils.Globals.glob_context = ctx;
                 MessageBox.Show("File " + fSrc + " loaded successfully");
             }
             catch (Exception E)
@@ -54,6 +59,7 @@ namespace prog_tech_var12
                 MessageBox.Show(E.Message);
                 fSrc = ofd.FileName = "";
             }
+            Globals.glob_activeFname = fSrc;
         }
 
         private void chooseToolStripMenuItem_Click(object sender, EventArgs e)
@@ -67,6 +73,34 @@ namespace prog_tech_var12
             FormColor FC = new FormColor();
             FC.ShowDialog();
             drawToolStripMenuItem.Enabled = utils.Globals.glob_canDraw;
+        }
+
+        private void f_main_Load(object sender, EventArgs e)
+        {
+        }
+
+        private void pb_canvas_Click(object sender, EventArgs e)
+        {
+            utils.Painter.clearCanvas(ref pb_canvas, utils.Globals.glob_fillColor);
+        }
+
+        private void debugToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            DebugWindow dw = new DebugWindow();
+            dw.Show();
+        }
+
+        private void f_main_Resize(object sender, EventArgs e)
+        {
+            if (Globals.glob_canDraw)
+            {
+                this.drawToolStripMenuItem_Click(sender, e);
+            }
+        }
+
+        private void f_main_ResizeEnd(object sender, EventArgs e)
+        {
+
         }
     }
 }

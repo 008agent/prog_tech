@@ -39,6 +39,7 @@ namespace utils
                 XmlWriter xml = XmlWriter.Create(fname);
                 XmlSerializer xmls = new XmlSerializer(Ctx.GetType());
                 xmls.Serialize(xml, Ctx);
+                xml.Close();
                 return true;
             }
             catch (Exception E)

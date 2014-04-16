@@ -1,0 +1,13 @@
+D:\src\prog_tech\prog_tech_var12\bin\Release\prog_tech_var12.exe
+D:\src\prog_tech\prog_tech_var12\bin\Release\prog_tech_var12.pdb
+D:\src\prog_tech\prog_tech_var12\obj\x86\Release\ResolveAssemblyReference.cache
+D:\src\prog_tech\prog_tech_var12\obj\x86\Release\prog_tech_var12.AboutBox1.resources
+D:\src\prog_tech\prog_tech_var12\obj\x86\Release\prog_tech_var12.DebugWindow.resources
+D:\src\prog_tech\prog_tech_var12\obj\x86\Release\prog_tech_var12.FormColor.resources
+D:\src\prog_tech\prog_tech_var12\obj\x86\Release\prog_tech_var12.f_main.resources
+D:\src\prog_tech\prog_tech_var12\obj\x86\Release\prog_tech_var12.FormChooseGraphType.resources
+D:\src\prog_tech\prog_tech_var12\obj\x86\Release\prog_tech_var12.Properties.Resources.resources
+D:\src\prog_tech\prog_tech_var12\obj\x86\Release\ResGen.read.1.tlog
+D:\src\prog_tech\prog_tech_var12\obj\x86\Release\ResGen.write.1.tlog
+D:\src\prog_tech\prog_tech_var12\obj\x86\Release\prog_tech_var12.exe
+D:\src\prog_tech\prog_tech_var12\obj\x86\Release\prog_tech_var12.pdb

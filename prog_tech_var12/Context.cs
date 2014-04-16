@@ -9,6 +9,8 @@ namespace utils
     [XmlRoot]
     public class Context
     {
+        [XmlElement]
+        public string pt_context = "true"; 
         [XmlArray]
         public double[] Xarr;
         [XmlArray]
