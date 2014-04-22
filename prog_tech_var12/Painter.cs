@@ -6,8 +6,16 @@ using System.Drawing;
 
 namespace utils
 {
+    /// <summary>
+    /// Класс для рисования фигур по заданию
+    /// </summary>
     class Painter
     {
+        /// <summary>
+        /// Очищает область для рисования
+        /// </summary>
+        /// <param name="pbCanvas">ссылка на объект PictureBox для рисования</param>
+        /// <param name="foreColor">цвет фона</param>
         public static void clearCanvas(ref PictureBox pbCanvas,Color foreColor)
         {
             using (Graphics G = pbCanvas.CreateGraphics())
@@ -15,6 +23,11 @@ namespace utils
                 G.Clear(foreColor);            
             }
         }
+        /// <summary>
+        /// Отрисовывает координатные плоскости
+        /// </summary>
+        /// <param name="pbCanvas">Ccылка на объект PictoreBox для рисования</param>
+        /// <param name="IC">Объект InitialCondition, задающий начальные условия</param>
         public static void drawGrid(ref PictureBox pbCanvas, utils.InitialConditions IC)
         {
             using (Graphics G = pbCanvas.CreateGraphics())
@@ -79,8 +92,52 @@ namespace utils
                 }
   
             }
+            drawPuncture(ref pbCanvas, IC);
         }
+        /// <summary>
+        /// Рисует пунктирные линии по заданию
+        /// </summary>
+        /// <param name="pbCanvas">Ccылка на объект PictoreBox для рисования</param>
+        /// <param name="IC">Объект InitialCondition, задающий начальные условия</param>
+        public static void drawPuncture(ref PictureBox pbCanvas, utils.InitialConditions IC)
+        {
+            Point maxYa, maxYb ,minYa ,minYb;
+            maxYa = maxYb = minYa = minYb = new Point();
+            Point pCenter = new Point();
+            pCenter.X = (int)((pbCanvas.Width / (Math.Abs(IC.Xmin) + Math.Abs(IC.Xmax))) * Math.Abs(IC.Xmin));
+            pCenter.Y = (int)((pbCanvas.Height / (Math.Abs(IC.Ymin) + Math.Abs(IC.Ymax))) * Math.Abs(IC.Ymax));
+                maxYa = IC.getMaxYPoint();
+                maxYa.X *= (int)IC.scaleX*2;
+                maxYa.X += pCenter.X;
+                maxYa.Y *= (int)IC.scaleY*2;
+                maxYa.Y = pCenter.Y - maxYa.Y;
+                maxYb.X = pCenter.X;
+                maxYb.Y = maxYa.Y;
 
+                minYa = IC.getMinYPoint();
+                minYa.X *= (int)IC.scaleX * 2;
+                minYa.X += pCenter.X;
+                minYa.Y *= (int)IC.scaleY * 2;
+                minYa.Y = pCenter.Y - minYa.Y - 2;
+                minYb.X = pCenter.X;
+                minYb.Y = minYa.Y;
+
+            Color c = Color.Black;
+            using (Graphics G = pbCanvas.CreateGraphics())
+            {
+                using (Pen p = new Pen(c))
+                {
+                    p.DashStyle = System.Drawing.Drawing2D.DashStyle.Dash;
+                    G.DrawLine(p, maxYa, maxYb);
+                    G.DrawLine(p, minYa, minYb);
+                }
+            }
+        }
+        /// <summary>
+        /// Рисует линейный график
+        /// </summary>
+        /// <param name="pbCanvas">Ccылка на объект PictoreBox для рисования</param>
+        /// <param name="IC">Объект InitialCondition, задающий начальные условия</param>
         public static void drawLinearGraph(ref PictureBox pbCanvas, utils.InitialConditions IC)
         {
             Color GlaphColor = Color.FromArgb(Globals.glob_colorRed,Globals.glob_colorGreen,Globals.glob_colorBlue);
@@ -105,7 +162,11 @@ namespace utils
                 }
             }
         }
-
+        /// <summary>
+        /// Рисует столбиковую диаграмму
+        /// </summary>
+        /// <param name="pbCanvas">Ccылка на объект PictoreBox для рисования</param>
+        /// <param name="IC">Объект InitialCondition, задающий начальные условия</param>
         public static void drawDiagramm(ref PictureBox pbCanvas, utils.InitialConditions IC)
         {
             Color GlaphColor = Color.FromArgb(Globals.glob_colorRed, Globals.glob_colorGreen, Globals.glob_colorBlue);

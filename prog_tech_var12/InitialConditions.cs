@@ -58,5 +58,43 @@ namespace utils
                 System.Windows.Forms.MessageBox.Show(E.Message);
             }
         }
+        /// <summary>
+        /// Получает координаты точки с максимальным значением Y
+        /// </summary>
+        /// <returns>Возвращает объект типа Point</returns>
+        public System.Drawing.Point getMaxYPoint()
+        {
+            System.Drawing.Point tmp = new System.Drawing.Point();
+            tmp.X = (int)this.ctx.Xarr[0];
+            tmp.Y = (int)this.ctx.Yarr[0];
+            for (int i = 0; i < this.ctx.Xarr.GetLength(0); i++)
+            {
+                if (this.ctx.Yarr[i] > tmp.Y)
+                {
+                    tmp.X = (int)this.ctx.Xarr[i];
+                    tmp.Y = (int)this.ctx.Yarr[i];
+                }
+            }
+            return tmp;
+        }
+        /// <summary>
+        /// Получает координаты точки с минимальным значением Y
+        /// </summary>
+        /// <returns>Возвращает объект типа Point</returns>
+        public System.Drawing.Point getMinYPoint()
+        {
+            System.Drawing.Point tmp = new System.Drawing.Point();
+            tmp.X = (int)this.ctx.Xarr[0];
+            tmp.Y = (int)this.ctx.Yarr[0];
+            for (int i = 0; i < this.ctx.Xarr.GetLength(0); i++)
+            {
+                if (this.ctx.Yarr[i] < tmp.Y)
+                {
+                    tmp.X = (int)this.ctx.Xarr[i];
+                    tmp.Y = (int)this.ctx.Yarr[i];
+                }
+            }
+            return tmp;
+        }
     }
 }

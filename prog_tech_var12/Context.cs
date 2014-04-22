@@ -5,6 +5,9 @@ using System.Xml.Serialization;
 
 namespace utils
 {
+    /// <summary>
+    /// Класс - контекст, содержащий массивы с точками. Сериализуемый.
+    /// </summary>
     [Serializable]
     [XmlRoot]
     public class Context

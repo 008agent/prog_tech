@@ -8,8 +8,16 @@ using System.Xml;
 
 namespace utils
 {
+    /// <summary>
+    /// Класс - загрузчик XML
+    /// </summary>
     class Loader
     {
+        /// <summary>
+        /// Загружает файл XML
+        /// </summary>
+        /// <param name="fname">Имя файла</param>
+        /// <returns>Возвращает класс контекста</returns>
         public static Context loadXML(string fname)
         {
             Context Ctx = new Context();
@@ -31,7 +39,12 @@ namespace utils
             }
             return Ctx;
         }
-
+        /// <summary>
+        /// Сохраняет контекст в XML
+        /// </summary>
+        /// <param name="Ctx">Контекст для сохранения</param>
+        /// <param name="fname">Имя файла</param>
+        /// <returns></returns>
         public static bool saveXML(Context Ctx,string fname)
         {
             try
